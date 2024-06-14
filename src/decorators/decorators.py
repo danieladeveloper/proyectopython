@@ -12,7 +12,7 @@ def timeit(func):
         result = func(*args, **kwargs)
         end_time = time.time()
         elapsed_time= end_time - start_time
-        logging.info(f"{func.__name__} ejecutada en {elapsed_time:4f} seconds")
+        logging.info(f"{func.__name__} ejecutada en {elapsed_time:.4f} seconds")
         return result
     return wrapper
 

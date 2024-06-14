@@ -1,9 +1,9 @@
 import pandas as pd #para manejar y analizar datos
 import os #para interactuar con el sistema operativo
-#from ..decorators.decorators import timeit, logit
+from ..decorators.decorators import timeit, logit
 
-#@logit
-#@timeit
+@logit
+@timeit
 def load_data(data_path):
     #carga los datos desde un archivo, en este caso csv.
     if data_path.endswith(".csv"):
@@ -15,16 +15,16 @@ def load_data(data_path):
     print("data loaded successfully")
     return df
 
-#@logit
-#@timeit
+@logit
+@timeit
 def clean_data(df):
     df["price"]= df["price"].replace(r"[\$]","", regex=True).astype(float)
     df["promo"]= df["promo"].replace(r"[\$]","", regex=True).astype(float)
     print("data cleaned successfully")
     return df
 
-#@logit
-#@timeit
+@logit
+@timeit
 def analyze_data(df):
     print("basic data analysis: ") #imprime encabezado para análisis de datos
     print(df.describe()) #resumen estadístico de los datos
@@ -34,8 +34,8 @@ def analyze_data(df):
     return highestPrices
 
 
-#@logit
-#@timeit
+@logit
+@timeit
 def save_clean_data(df, output_path):
     if output_path.endswith(".csv"):
         df.to_csv(output_path, index=False)
